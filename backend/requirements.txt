@@ -15,4 +15,4 @@ python-multipart>=0.0.18
 slowapi>=0.1.9
 structlog>=24.4
 prometheus-client>=0.21
-sentry-sdk[fastapi]>=2.0
+sentry-sdk[fastapi]>=2.58.0
