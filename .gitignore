@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+
+# Node
+node_modules/
+.next/
+.wxt/
+dist/
+
+# Environment — never commit secrets
+.env
+.env.local
+.env.production
+.env.production.local
+.env*.local
+*.env
+!.env.example
+authentik.env
+scripts/.seed-credentials
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+
+# Node.js cache
+node-compile-cache/
+update-check/

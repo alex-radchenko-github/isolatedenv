@@ -1,0 +1,5 @@
+.skeletonGrid {
+  display: grid;
+  gap: var(--mantine-spacing-md);
+  grid-template-columns: repeat(auto-fill, minmax(rem(200px), 1fr));
+}

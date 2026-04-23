@@ -1,0 +1,7 @@
+.hero {
+  background: linear-gradient(
+    to bottom,
+    var(--mantine-color-body),
+    var(--mantine-color-default-hover)
+  );
+}

@@ -1,0 +1,6 @@
+.header {
+  z-index: 50;
+  border-bottom: rem(1px) solid var(--mantine-color-default-border);
+  backdrop-filter: blur(rem(8px));
+  background-color: color-mix(in srgb, var(--mantine-color-body) 95%, transparent);
+}

@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Write(src/**)",
+      "Write(backend/**)",
+      "Edit(src/**)",
+      "Edit(backend/**)",
+      "Edit(CLAUDE.md)",
+      "Bash(git *)",
+      "Bash(pnpm *)",
+      "Bash(npm *)",
+      "Bash(npx *)",
+      "Bash(docker compose *)",
+      "Bash(docker ps *)",
+      "Bash(docker logs *)",
+      "Bash(make *)",
+      "Bash(ruff *)",
+      "Bash(uv *)",
+      "Bash(ls *)",
+      "Bash(wc *)",
+      "Bash(curl *)",
+      "mcp__context7",
+      "mcp__mantine*",
+      "mcp__chrome-devtools*",
+      "mcp__playwright*"
+    ],
+    "deny": [
+      "Bash(rm -rf /)",
+      "Bash(rm -rf ~)",
+      "Bash(rm -rf .)",
+      "Bash(git push --force *)",
+      "Bash(git reset --hard *)",
+      "Write(.env)",
+      "Write(.env.*)"
+    ]
+  }
+}

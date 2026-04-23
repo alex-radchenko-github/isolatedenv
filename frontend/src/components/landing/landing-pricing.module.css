@@ -1,0 +1,11 @@
+.popularCard {
+  border-color: var(--mantine-primary-color-filled);
+  position: relative;
+}
+
+.popularBadge {
+  position: absolute;
+  top: rem(-12px);
+  left: 50%;
+  transform: translateX(-50%);
+}

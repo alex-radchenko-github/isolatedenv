@@ -1,0 +1,8 @@
+.userButton {
+  border-radius: var(--mantine-radius-md);
+}
+
+.userInfo {
+  flex: 1;
+  min-width: 0;
+}

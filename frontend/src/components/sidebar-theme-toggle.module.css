@@ -1,0 +1,4 @@
+.toggleGroup {
+  border-radius: var(--mantine-radius-md);
+  border: rem(1px) solid var(--mantine-color-default-border);
+}
