@@ -90,7 +90,6 @@ Web: OIDC callback + cookie session (`auth-server.ts`, `/api/auth/*` routes), `p
 | Free | free@example.com | TestFree123! (role=free) |
 
 
-<!-- stacklens:start -->
 ## StackLens — retrieval contract (machine rules)
 
 Three MCP servers wired in `.mcp.json`. Authoritative source for types, signatures, deprecations, and prose for libraries in the project's stack.
@@ -110,13 +109,13 @@ Canonical code-facts: symbol identifier, signature, type shape, deprecation mapp
 ### Call gate
 
 Call condition (AND-composed):
-- package or library identifier ∈ `stack.yaml`
+- package is installed in this project (`node_modules/` or `.venv/`)
 - facet shape ∈ { signature, type shape, deprecation, migration, file convention, config key, runnable example }
 
 Skip conditions (OR):
 - stdlib identifier (e.g. `asyncio.*`, global `fetch`, `Array.prototype.*`)
 - pure algorithm / business logic (no library identifier)
-- identifier ∉ `stack.yaml`
+- package not installed in this project
 
 ### Server selection
 
@@ -251,7 +250,7 @@ Tool silence on other envelope patterns ≠ factual claim. See R1–R5.
 
 **in_scope** (call StackLens):
 - Types, signatures, exports, deprecations of packages installed in `node_modules/` or `.venv/`.
-- Prose (concepts, migrations, recipes, configs) for libraries listed in `stack.yaml`.
+- Prose (concepts, migrations, recipes, configs) for installed libraries onboarded in StackLens.
 
 **out_of_scope** (do NOT call StackLens directly; route per table):
 
@@ -328,4 +327,4 @@ facets:
 ```
 
 Delegation condition: count(facets) ≥ 2 OR facet requires chain (types → prose). Single atomic facet → inline call (no subagent).
-<!-- stacklens:end -->
+
