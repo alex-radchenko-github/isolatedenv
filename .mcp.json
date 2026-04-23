@@ -2,25 +2,21 @@
   "mcpServers": {
     "chrome-devtools": {
       "command": "npx",
-      "args": ["-y", "chrome-devtools-mcp@latest"]
-    },
-    "libprose": {
-      "type": "http",
-      "url": "http://localhost:5103/mcp",
-      "headers": {
-        "X-Project-Root": "isolatedenv"
-      }
-    },
-    "stacklens-native-py": {
-      "command": "/Users/alexanderradchenko/PycharmProjects/StackLens/.venv/bin/python",
       "args": [
-        "-m",
-        "libtypes_py.server"
+        "-y",
+        "chrome-devtools-mcp@latest"
+      ]
+    },
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp",
+        "--api-key",
+        "ctx7sk-b892dbe6-b26c-4fb7-b261-bd4ec0a8b601"
       ],
-      "env": {
-        "STACKLENS_PY_VENV": "/Users/alexanderradchenko/Coding/Services/isolatedenv/backend/.venv",
-        "PYTHONPATH": "/Users/alexanderradchenko/PycharmProjects/StackLens"
-      }
+      "env": {}
     }
   }
 }
