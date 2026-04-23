@@ -1,6 +1,6 @@
 ---
 name: "stacklens-consultant"
-description: "StackLens retrieval subagent. Inputs: facets list over in-stack libraries. Returns: types facts (signatures, type shapes, exports, deprecations, distribution metadata, JSON schema) via stacklens-native / stacklens-native-py; prose facts (migrations, concepts, recipes, configs, examples) via libprose BM25. Invoked when input facet targets a library listed in stack.yaml and question shape ∈ {signature, type, deprecation, migration, file convention, config key, example}. Not invoked for stdlib, pure algorithm, business logic, architectural decisions, library selection."
+description: "StackLens retrieval subagent. Inputs: facets list over in-stack libraries. Returns: types facts (signatures, type shapes, exports, deprecations, distribution metadata, JSON schema) via stacklens-native / stacklens-native-py; prose facts (migrations, concepts, recipes, configs, examples) via libprose BM25. Invoked when input facet targets a library installed in the project and question shape ∈ {signature, type, deprecation, migration, file convention, config key, example}. Not invoked for stdlib, pure algorithm, business logic, architectural decisions, library selection."
 model: "inherit"
 tools: "mcp__stacklens-native__stacklens_get_type, mcp__stacklens-native__stacklens_get_signature, mcp__stacklens-native__stacklens_list_exports, mcp__stacklens-native__stacklens_list_deprecations, mcp__stacklens-native__stacklens_find_symbol, mcp__stacklens-native__stacklens_get_package_metadata, mcp__stacklens-native-py__stacklens_get_type, mcp__stacklens-native-py__stacklens_get_signature, mcp__stacklens-native-py__stacklens_list_exports, mcp__stacklens-native-py__stacklens_list_deprecations, mcp__stacklens-native-py__stacklens_find_symbol, mcp__stacklens-native-py__stacklens_get_package_metadata, mcp__stacklens-native-py__stacklens_get_dependencies, mcp__stacklens-native-py__stacklens_list_entry_points, mcp__stacklens-native-py__stacklens_get_json_schema, mcp__libprose__docs_search, mcp__libprose__docs_section, mcp__libprose__docs_toc"
 maxTurns: 10
@@ -258,14 +258,14 @@ If status ≠ full: append one-line reason `<error_code> for <lib|package>` or `
 
 ### in_scope
 - Types facet: signatures, fields, deprecations, exports, schemas of packages installed under `node_modules/` or `.venv/`.
-- Prose facet: concepts, migrations, recipes, configs of libraries listed in `stack.yaml` with indexed snapshot.
+- Prose facet: concepts, migrations, recipes, configs of libraries onboarded in StackLens with indexed snapshot.
 
 ### out_of_scope → status=out_of_scope, no StackLens retry
 - Architectural / design decisions (SSR vs SSG, monolith vs microservices, library selection). → parent escalates to `@stacklens-architect`.
 - Runtime behavior not documented in library docs (race conditions, GC timing, internal caching). → parent escalates to `@stacklens-architect`.
 - Security / compliance rules. → parent escalates to `@stacklens-architect`.
 - Cross-library architectural integration where no single library's snapshot can answer the join. → parent escalates to `@stacklens-architect`.
-- Language stdlib (`asyncio`, `fetch`, `Array.prototype.*`) — not a `stack.yaml` entry. → parent uses language docs or web search directly.
+- Language stdlib (`asyncio`, `fetch`, `Array.prototype.*`) — not an installed package. → parent uses language docs or web search directly.
 
 Handoff format: parent receives architect decision + `## Recommended facets` → re-invokes `@stacklens-consultant` with those facets for code-fact resolution.
 
