@@ -3,6 +3,24 @@
     "chrome-devtools": {
       "command": "npx",
       "args": ["-y", "chrome-devtools-mcp@latest"]
+    },
+    "libprose": {
+      "type": "http",
+      "url": "http://localhost:5103/mcp",
+      "headers": {
+        "X-Project-Root": "isolatedenv"
+      }
+    },
+    "stacklens-native-py": {
+      "command": "/Users/alexanderradchenko/PycharmProjects/StackLens/.venv/bin/python",
+      "args": [
+        "-m",
+        "libtypes_py.server"
+      ],
+      "env": {
+        "STACKLENS_PY_VENV": "/Users/alexanderradchenko/Coding/Services/isolatedenv/backend/.venv",
+        "PYTHONPATH": "/Users/alexanderradchenko/PycharmProjects/StackLens"
+      }
     }
   }
 }
