@@ -4,7 +4,7 @@
       "command": "npx",
       "args": ["-y", "chrome-devtools-mcp@latest"]
     },
-    "libprose": {
+   "libprose": {
       "type": "http",
       "url": "http://localhost:5103/mcp",
       "headers": {
@@ -20,6 +20,15 @@
       "env": {
         "STACKLENS_PY_VENV": "/Users/alexanderradchenko/Coding/Services/isolatedenv/backend/.venv",
         "PYTHONPATH": "/Users/alexanderradchenko/PycharmProjects/StackLens"
+      }
+    },
+    "stacklens-native": {
+      "command": "node",
+      "args": [
+        "/Users/alexanderradchenko/PycharmProjects/StackLens/mcp/stacklens-native/dist/server.js"
+      ],
+      "env": {
+        "STACKLENS_PROJECT_ROOT": "/Users/alexanderradchenko/Coding/Services/isolatedenv/frontend"
       }
     }
   }
